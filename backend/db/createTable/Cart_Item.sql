@@ -1,0 +1,10 @@
+use shop;
+CREATE TABLE Cart_Item (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  token VARCHAR(50) NOT NULL,
+  trade_id VARCHAR(50) NOT NULL,
+  product_uuid VARCHAR(50) NOT NULL,
+  quantity INT NOT NULL DEFAULT 1,
+  FOREIGN KEY (token) REFERENCES Cart(token) ON DELETE CASCADE,
+  FOREIGN KEY (product_uuid) REFERENCES Product(uuid) ON DELETE CASCADE
+);
