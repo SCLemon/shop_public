@@ -25,7 +25,7 @@ router.post('/api/cart/add', async (req, res) => {
 
       const trade_id = uuidv4();
       await db.execute(
-        'INSERT INTO Cart_item (token, trade_id, product_uuid, quantity) VALUES (?, ?, ?, ?)',
+        'INSERT INTO Cart_Item (token, trade_id, product_uuid, quantity) VALUES (?, ?, ?, ?)',
         [token, trade_id, product_uuid, qty]
       );
   
