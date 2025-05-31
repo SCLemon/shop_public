@@ -18,14 +18,14 @@ router.post('/api/cart/add', async (req, res) => {
   
     try {
       // 1. 確認購物車是否存在，若無則新增
-      const [cartRows] = await db.execute('SELECT token FROM cart WHERE token = ?', [token]);
+      const [cartRows] = await db.execute('SELECT token FROM Cart WHERE token = ?', [token]);
       if (cartRows.length === 0) {
-        await db.execute('INSERT INTO cart (token) VALUES (?)', [token]);
+        await db.execute('INSERT INTO Cart (token) VALUES (?)', [token]);
       }
 
       const trade_id = uuidv4();
       await db.execute(
-        'INSERT INTO cart_item (token, trade_id, product_uuid, quantity) VALUES (?, ?, ?, ?)',
+        'INSERT INTO Cart_item (token, trade_id, product_uuid, quantity) VALUES (?, ?, ?, ?)',
         [token, trade_id, product_uuid, qty]
       );
   
@@ -56,7 +56,7 @@ router.get('/api/cart/items', async (req, res) => {
           p.detail,
           p.src
         FROM Cart_Item ci
-        JOIN product p ON ci.product_uuid = p.uuid
+        JOIN Product p ON ci.product_uuid = p.uuid
         WHERE ci.token = ?
       `, [token]);
   

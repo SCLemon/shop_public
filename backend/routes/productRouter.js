@@ -16,7 +16,7 @@ const authMiddleWare = async (req, res, next) => {
                 msg:'使用者身份異常'
             })
         }
-        const [rows] = await db.query(`SELECT level FROM user WHERE token = ?`, [token]);
+        const [rows] = await db.query(`SELECT level FROM User WHERE token = ?`, [token]);
   
         if (rows.length === 0) {
             return res.send({

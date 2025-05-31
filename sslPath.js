@@ -1,5 +1,5 @@
-const keyForHttps ='../../../etc/letsencrypt/live/medreminder.serveblog.net-0001/privkey.pem';
-const pemForHttps ='../../../etc/letsencrypt/live/medreminder.serveblog.net-0001/fullchain.pem';
+const keyForHttps ='../../../etc/letsencrypt/live/joannashop.serveblog.net/privkey.pem';
+const pemForHttps ='../../../etc/letsencrypt/live/joannashop.serveblog.net/fullchain.pem';
 
 module.exports = {
     keyForHttps,pemForHttps
